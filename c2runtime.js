@@ -19234,7 +19234,7 @@ cr.plugins_.GD_SDK = function(runtime) {
         if (d.getElementById(id)) return;
         js = d.createElement(s);
         js.id = id;
-        js.src = "//html5.api.gamedistribution.com/main.min.js";
+        js.src = "data:text/javascript,void 0";
         fjs.parentNode.insertBefore(js, fjs);
       })(document, "script", "gamedistribution-jssdk");
     };
