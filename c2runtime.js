@@ -19228,15 +19228,21 @@ cr.plugins_.GD_SDK = function(runtime) {
           }
         }
       };
-      (function(d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "data:text/javascript,void 0";
-        fjs.parentNode.insertBefore(js, fjs);
-      })(document, "script", "gamedistribution-jssdk");
+      setTimeout(function() {
+        if (
+          window["GD_OPTIONS"] &&
+          typeof window["GD_OPTIONS"]["onEvent"] === "function"
+        ) {
+          window["GD_OPTIONS"]["onEvent"]({
+            name: "SDK_READY",
+            status: "success"
+          });
+          window["GD_OPTIONS"]["onEvent"]({
+            name: "SDK_GAME_START",
+            status: "success"
+          });
+        }
+      }, 0);
     };
   };
   function Cnds() {}
